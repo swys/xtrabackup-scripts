@@ -168,6 +168,7 @@ class BackupTool:
         postdata = {
             'archive_repository': self.backup_repository,
             'archive_path': self.final_archive_path,
+            'hello_world': 'hello world'
         }
         self.logger.debug("POST archive_repository: " + self.backup_repository)
         self.logger.debug("POST archive_path: " + self.final_archive_path)
