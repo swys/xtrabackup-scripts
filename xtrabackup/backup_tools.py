@@ -170,7 +170,7 @@ class BackupTool:
             'hostname': str(socket.gethostname()) + "." + str(socket.getfqdn()),
             'archive_repository': self.backup_repository,
             'archive_path': self.final_archive_path,
-            'archive_size': str(os.stat(self.backup_repository).st_size >> 20) + "MB"
+            'archive_size': str(os.stat(self.final_archive_path).st_size >> 20) + "MB",
         }
         self.logger.debug("POST archive_repository: " + self.backup_repository)
         self.logger.debug("POST archive_path: " + self.final_archive_path)
