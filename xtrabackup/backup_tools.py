@@ -168,7 +168,7 @@ class BackupTool:
 
     def trigger_webhook(self, webhook_url):
         postdata = {
-            'hostname': str(socket.gethostname()) + "." + str(socket.getfqdn()),
+            'hostname': str(socket.gethostname()),
             'archive_repository': self.backup_repository,
             'archive_path': self.final_archive_path,
             'archive_size': str(os.stat(self.final_archive_path).st_size >> 20) + "MB",
