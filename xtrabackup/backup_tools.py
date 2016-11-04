@@ -7,6 +7,7 @@ import xtrabackup.exception as exception
 import xtrabackup.timer as timer
 import logging
 import socket
+import os
 
 
 class BackupTool:
