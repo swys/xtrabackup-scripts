@@ -6,6 +6,7 @@ import xtrabackup.log_manager as log_manager
 import xtrabackup.exception as exception
 import xtrabackup.timer as timer
 import logging
+import socket
 
 
 class BackupTool:
@@ -166,9 +167,10 @@ class BackupTool:
 
     def trigger_webhook(self, webhook_url):
         postdata = {
+            'hostname': str(socket.gethostname()) + "." + str(socket.getfqdn()),
             'archive_repository': self.backup_repository,
             'archive_path': self.final_archive_path,
-            'hello_world': 'hello world'
+            'archive_size': str(os.stat(self.backup_repository).st_size >> 20) + "MB"
         }
         self.logger.debug("POST archive_repository: " + self.backup_repository)
         self.logger.debug("POST archive_path: " + self.final_archive_path)
